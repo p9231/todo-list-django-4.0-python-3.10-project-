@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block main %}
+<div>
+  <div class="container pt-4">
+    <div class="row  p-0 mt-4">
+      <div class="col-lg-4 mx-auto shadow p-0">
+        <div class="alert alert-info">
+          <h2>Add New TODO</h2>
+        </div>
+        <div class="p-4">
+          <form action="/add_todo/" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <hr>
+            <input type="submit" value="ADD" class="btn btn-info">
+          </form>
+        </div>
+      </div>
+      <tbody>
+      
+      <div class="col">
+        <div class="border">
+
+        {% for todo in todos %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{todo.title}}</td>
+          <td>{{todo.descriptions}}</td>
+          <td>{{todo.date_time}}</td>
+          <td>{{todo.status_task}}</td>
+          <td>{{todo.created_on}}</td>
+          <td>{{todo.updated_on}}</td>
+         
+        </tr>
+        {%endfor%}
+
+
+      </tbody>
+
+      </div>
+    </div>
+    
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}
