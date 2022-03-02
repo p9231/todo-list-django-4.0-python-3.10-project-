@@ -1,6 +1,8 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from todoapp.forms import TODOForm
 from todoapp.models import TODO
+import csv
 
 
 def home(request):
@@ -35,10 +37,6 @@ def add_todo(request, id=0):
             return redirect ("home")
         else:
             return render (request, 'home.html', context={'form' : form})
-    
-    
-def update_task(request, id=0):
-   pass
 
 
 def delete_task(request, id):
@@ -46,4 +44,17 @@ def delete_task(request, id):
     todo.delete()
     return redirect('home')
 
+
+def csv_export_file(request):
+    response=HttpResponse(content_type='text/csv')
+    response={'Content-Disposition': 'attachment; filename="todo_list.csv"'}
+    writer = csv.writer(response)
+    writer.writerow(['title', 'description', 'date_time', 'created_on', 'updated_on'])
+    todo = TODO.objects.all().values_list('title', 'description', 'date_time', 'created_on', 'updated_on')
+    for todo_list in todo:
+        writer.writerow(todo_list)
+        
+    return response
+        
+    
 

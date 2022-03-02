@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import delete_task, home, user, add_todo, update_task, delete_task
+from .views import delete_task, home, user, add_todo, delete_task
 
 
 urlpatterns = [
