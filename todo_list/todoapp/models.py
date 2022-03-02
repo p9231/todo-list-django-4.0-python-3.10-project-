@@ -13,8 +13,9 @@ class TODO(models.Model):
     status_task=models.CharField(max_length=3, choices=STATUS_CODE)
     created_on=models.DateTimeField(auto_now_add=True)
     updated_on=models.DateTimeField(auto_now_add=True)
+    isdelete=models.BooleanField(default=True)
     
     
-    def __str__(self) -> str:
-        return self.title, self.date_time
+    # def __str__(self) -> str:
+    #     return self.title, self.date_time
     

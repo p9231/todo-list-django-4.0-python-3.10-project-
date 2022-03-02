@@ -7,6 +7,6 @@ urlpatterns = [
     path('', home, name='home'),
     path('user/', user),
     path('add_todo/', add_todo),
-    path('add_todo/<int:id>/', add_todo, name='update_task'),
+    path('add_todo/<str:id>/', add_todo, name='update_task'),
     path('delete/<int:id>/', delete_task, name='delete_task')
 ]
