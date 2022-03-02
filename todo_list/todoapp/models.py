@@ -15,3 +15,6 @@ class TODO(models.Model):
     updated_on=models.DateTimeField(auto_now_add=True)
     
     
+    def __str__(self) -> str:
+        return self.title, self.date_time
+    
