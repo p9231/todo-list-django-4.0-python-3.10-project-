@@ -16,6 +16,6 @@ class TODO(models.Model):
     isdelete=models.BooleanField(default=True)
     
     
-    # def __str__(self) -> str:
-    #     return self.title, self.date_time
+    def __str__(self) -> str:
+        return (self.title, self.date_time)
     

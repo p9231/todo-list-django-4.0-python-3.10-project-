@@ -29,45 +29,32 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-                {% for todo in todos %}
+          <tr>
+              {% for todo in todos %}
       
-        <tr>
-          <td>{{forloop.counter}}</td>
-          <td>{{todo.title}}</td>
-          <td>{{todo.descriptions}}</td>
-          <td>{{todo.date_time}}</td>
-          <td>{{todo.status_task}}</td>
-          <td>{{todo.created_on}}</td>
-          <td>{{todo.updated_on}}</td>
-          <td>
-            <a href="{% url 'update_task' todo.id %}" class="btn text-info px-0">
-              <i class="fas fa-edit">Edit</i>
-            </a>
-            <a href="{% url 'delete_task' todo.id%}" class="btn text-danger px-0">
-              <i class="fas fa-edit">Delete</i>
-            </a>
-          </td>
-         
-        </tr>
-        {%endfor%}
-            </tr>
             <tr>
-              <td scope="row"></td>
-              <td></td>
-              <td></td>
+                <td>{{forloop.counter}}</td>
+                <td>{{todo.title}}</td>
+                <td>{{todo.descriptions}}</td>
+                <td>{{todo.date_time}}</td>
+                <td>{{todo.status_task}}</td>
+                <td>{{todo.created_on}}</td>
+                <td>{{todo.updated_on}}</td>
+                <td>
+                  <a href="{% url 'update_task' todo.id %}" class="btn text-info px-0">
+                    <i class="fas fa-edit">Update</i>
+                  </a>
+                  <a href="{% url 'delete_task' todo.id%}" class="btn text-danger px-0">
+                    <i class="fas fa-edit">Delete</i>
+                  </a>
+                </td>
+         
+              </tr>
+              {%endfor%}
             </tr>
           </tbody>
         </table>
-      
-
-
-      </tbody>
-
-      </div>
-    </div>
-    
-      </div>
+      </div>   
     </div>
   </div>
 </div>
